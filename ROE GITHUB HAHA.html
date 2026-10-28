@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ROE | My Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #071426;
+            color: #f8fafc;
+            line-height: 1.7;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #0d2038;
+            border-bottom: 1px solid #1e40af;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #60a5fa;
+        }
+
+        nav a {
+            color: #dbeafe;
+            text-decoration: none;
+            margin-left: 18px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #60a5fa;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(
+                circle at top,
+                #1d4ed855,
+                transparent 65%
+            );
+        }
+
+        .tag {
+            color: #93c5fd;
+            border: 1px solid #2563eb;
+            background: #1d4ed833;
+            padding: 7px 17px;
+            border-radius: 30px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 8vw, 70px);
+            line-height: 1.2;
+        }
+
+        .highlight {
+            color: #60a5fa;
+        }
+
+        .hero h2 {
+            color: #93c5fd;
+            margin-top: 12px;
+        }
+
+        .hero p {
+            max-width: 620px;
+            color: #cbd5e1;
+            margin: 20px 0 28px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 23px;
+            margin: 5px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .secondary {
+            border: 1px solid #60a5fa;
+            color: #dbeafe;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 75px 8%;
+            scroll-margin-top: 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: #93a9c5;
+            margin-bottom: 35px;
+        }
+
+        .about {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            color: #cbd5e1;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #102440;
+            padding: 25px;
+            border: 1px solid #234570;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #60a5fa;
+            box-shadow: 0 8px 25px #2563eb22;
+        }
+
+        .card h3 {
+            color: #93c5fd;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        .info {
+            margin-top: 25px;
+            padding: 20px;
+            background: #102440;
+            border-radius: 12px;
+            border: 1px solid #234570;
+        }
+
+        .info p {
+            margin: 8px 0;
+        }
+
+        .joke {
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+            padding: 30px;
+            background: #102440;
+            border: 1px solid #2563eb;
+            border-radius: 15px;
+        }
+
+        .joke p {
+            color: #dbeafe;
+            margin: 15px 0;
+        }
+
+        .joke button {
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .contact {
+            text-align: center;
+            background: #0d2038;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            margin: 15px 0;
+        }
+
+        .contact a:not(.btn) {
+            color: #60a5fa;
+        }
+
+        footer {
+            text-align: center;
+            padding: 22px;
+            color: #93a9c5;
+            font-size: 13px;
+            border-top: 1px solid #234570;
+        }
+
+        @media (max-width: 650px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            section {
+                padding: 55px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">💙 ROE</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#hobbies">Hobbies</a>
+            <a href="#fun">Fun Zone</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="tag">👋 WELCOME TO MY PERSONAL WEBSITE</div>
+
+        <h1>Hi, I'm <span class="highlight">ROE!</span></h1>
+
+        <h2>♟️ Reader | Chess Lover | Joke Enthusiast</h2>
+
+        <p>
+            Welcome to my little corner of the internet!
+            I enjoy playing chess, reading interesting books,
+            loving the color blue, and sharing funny jokes.
+            Life is better when you keep learning and laughing!
+        </p>
+
+        <div>
+            <a href="#about" class="btn primary">
+                Discover More 💙
+            </a>
+
+            <a href="#fun" class="btn secondary">
+                Make Me Laugh 😂
+            </a>
+        </div>
+
+    </section>
+
+    <!-- ABOUT ME -->
+    <section id="about">
+
+        <h2 class="section-title">
+            About <span class="highlight">Me</span>
+        </h2>
+
+        <p class="section-desc">A little introduction about ROE</p>
+
+        <div class="about">
+            <p>
+                Hello! My name is ROE. I am someone who enjoys
+                exploring ideas through books, challenging my
+                mind with chess, and finding humor in everyday
+                life. My favorite color is blue because it gives
+                me a calm and peaceful feeling.
+                I believe that every day is an opportunity
+                to learn something new and enjoy life.
+            </p>
+
+            <div class="info">
+                <p>👤 <strong>Name:</strong> ROE</p>
+                <p>🎂 <strong>Birthday:</strong> February 7, 2001</p>
+                <p>💙 <strong>Favorite Color:</strong> Blue</p>
+                <p>♟️ <strong>Favorite Hobby:</strong> Playing Chess</p>
+                <p>📚 <strong>Another Hobby:</strong> Reading Books</p>
+                <p>😂 <strong>Personality:</strong> Loves Funny Jokes</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- HOBBIES -->
+    <section id="hobbies">
+
+        <h2 class="section-title">
+            My <span class="highlight">Hobbies</span>
+        </h2>
+
+        <p class="section-desc">
+            Things I love doing in my free time
+        </p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>♟️ Playing Chess</h3>
+                <p>
+                    I enjoy playing chess because it challenges
+                    my mind, improves my strategy, and teaches
+                    me to think before making a move.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📚 Reading Books</h3>
+                <p>
+                    Reading books allows me to explore new ideas,
+                    discover different worlds, gain knowledge,
+                    and use my imagination.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>💙 Loving Blue</h3>
+                <p>
+                    Blue is my favorite color. It reminds me
+                    of the sky and ocean and gives my website
+                    its cool, relaxing style.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>😂 Enjoying Funny Jokes</h3>
+                <p>
+                    I love jokes and funny moments.
+                    A little laughter can turn an ordinary
+                    day into a great one!
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FUN ZONE -->
+    <section id="fun">
+
+        <h2 class="section-title">
+            ROE's <span class="highlight">Fun Zone</span>
+        </h2>
+
+        <p class="section-desc">
+            Because life should include laughter!
+        </p>
+
+        <div class="joke">
+
+            <h3>😂 Joke of the Day</h3>
+
+            <p id="jokeText">
+                Why was the chess player so calm?
+                Because he knew how to keep his cool!
+            </p>
+
+            <button
+                class="btn primary"
+                onclick="newJoke()">
+                Tell Me Another Joke 😂
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <h2 class="section-title">
+            Get in <span class="highlight">Touch</span>
+        </h2>
+
+        <p>
+            Thanks for visiting my personal portfolio!
+            Keep reading, keep thinking, and keep laughing. 💙
+        </p>
+
+        <p>
+            GitHub:
+            <a
+                href="https://github.com/yourusername"
+                target="_blank"
+                rel="noopener noreferrer">
+                Visit My GitHub
+            </a>
+        </p>
+
+        <!-- Replace the link above with your actual GitHub username -->
+
+    </section>
+
+    <footer>
+        <p>
+            Made with 💙 by ROE
+        </p>
+
+        <p>
+            © 2026 ROE | Keep Calm and Make Your Next Move ♟️
+        </p>
+    </footer>
+
+    <script>
+        const jokes = [
+            "Why was the chess player so calm? Because he knew how to keep his cool! ♟️",
+
+            "Why do books never get cold? Because they always have covers! 📚",
+
+            "Why did the computer go to the doctor? Because it caught a virus! 💻",
+
+            "Why was the math book sad? Because it had too many problems! 😂",
+
+            "What do you call a bear with no teeth? A gummy bear! 🐻",
+
+            "Why did the king go to the dentist? To get his crown checked! 👑",
+
+            "Why did the reader bring a ladder to the library? To reach the next level! 📚",
+
+            "What is a chess player's favorite kind of music? Check-and-roll! 🎵",
+
+            "Why did the blue pen get promoted? Because it always made its point! 💙"
+        ];
+
+        let lastJoke = -1;
+
+        function newJoke() {
+            let randomIndex;
+
+            do {
+                randomIndex = Math.floor(
+                    Math.random() * jokes.length
+                );
+            } while (
+                jokes.length > 1 &&
+                randomIndex === lastJoke
+            );
+
+            lastJoke = randomIndex;
+
+            document.getElementById("jokeText").textContent =
+                jokes[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
